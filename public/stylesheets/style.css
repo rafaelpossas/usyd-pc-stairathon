@@ -1,0 +1,166 @@
+header{
+
+}
+nav {
+    height: 75px;
+}
+.logo {
+    width: auto;
+    height: 60px;
+    margin: 2px;
+}
+.stairs{
+    width: 150px;
+    height: auto;
+}
+.navbar-nav > li > a{
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.form-signin {
+    max-width: 280px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top:50px;
+}
+.form-signin .form-signin-heading, .form-signin {
+    margin-bottom: 10px;
+}
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 0px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+
+}
+
+.main-alert {
+    position:absolute;
+    bottom: 70px;
+    left: 5px;
+    right: 5px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.alert-hidden {
+    visibility: hidden;
+}
+
+.view-animate-container{
+    position: relative;
+}
+
+.view-animate.ng-enter,
+.view-animate.ng-leave {
+    position: absolute;
+    left: 0;right: 0;
+    -webkit-transition: all .15s ease-in-out;
+    -moz-transition: all .15s ease-in-out;
+    -o-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+.view-animate.ng-enter{
+    opacity: 0;
+    -webkit-transform: scale3d(0.96,0.96,0.96);
+    -moz-transform: scale3d(0.96,0.96,0.96);
+    transform: scale3d(0.96,0.96,0.96);
+}
+.view-animate.ng-enter-active{
+    opacity: 1;
+    -webkit-transform: scale3d(1,1,1);
+    -moz-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);
+}
+.view-animate.ng-leave{
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.view-animate.ng-leave-active{
+    opacity: 0;
+}
+
+/*
+    Brackets Styles
+*/
+
+main{
+       display:flex;
+       flex-direction:row;
+}
+.round{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:200px;
+    list-style:none;
+    padding:0;
+}
+.round .spacer{ flex-grow:1; }
+.round .spacer:first-child,
+.round .spacer:last-child{ flex-grow:.5; }
+
+.round .game-spacer{
+    flex-grow:1;
+}
+
+/*
+ *  General Styles
+*/
+body{
+    font-family:sans-serif;
+    font-size:small;
+    padding:10px;
+    line-height:1.4em;
+}
+
+li.game{
+    padding-left:20px;
+}
+
+li.game.winner{
+    font-weight:bold;
+}
+li.game span{
+    float:right;
+    margin-right:5px;
+}
+
+li.game-top{ border-bottom:1px solid #aaa; }
+
+li.game-spacer{
+    border-right:1px solid #aaa;
+    min-height:40px;
+}
+
+li.game-bottom{
+    border-top:1px solid #aaa;
+}
+

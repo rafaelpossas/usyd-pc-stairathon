@@ -1,0 +1,25 @@
+<div class="navbar navbar-fixed-top" ng-controller="headerCtrl">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a  href="/">
+                <img src="../../img/sydney.png" class="logo">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse pull-right">
+            <ul class="nav nav-pills">
+                <li id="home">
+                    <a href="/">Home</a>
+                </li>
+                <li ng-show="isAuthenticated" id="brackets">
+                    <a href="/brackets">Tournament Brackets</a>
+                </li>
+                <li ng-hide="isAuthenticated" class="" id="login">
+                    <a href="/login"> Sign In</a>
+                </li>
+                <li ng-show="isAuthenticated" class="" id="logout">
+                    <a href="/logout"> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

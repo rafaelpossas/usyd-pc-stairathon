@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="vendor/animate.css/animate.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="stylesheets/bootstrap_custom.css"/>
+    <link rel="stylesheet" href="stylesheets/style.css"/>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="procymo-admin">
+
+
+        <nav ng-include="'html/main/header.html'"></nav>
+
+        <div class="view-animate-container">
+            <div ng-view class="view-animate container-fluid"></div>
+        </div>
+
+
+        <div class="alert alert-{{alert.type}} animated main-alert" ng-class="{'flipInY': alert.show, 'flipOutY': !alert.show, 'alert-hidden': !alert.hasBeenShown}"><strong>{{alert.title}}</strong> {{alert.message}}</div>
+
+        <div id="footer" style="bottom: 0px;">
+
+        </div>
+
+    <!-- bower:js -->
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="vendor/angular-route/angular-route.js"></script>
+    <script src="vendor/angular-animate/angular-animate.js"></script>
+    <!-- endbower -->
+    <script src="/javascripts/app.js"></script>
+    <script src="javascripts/account/AuthToken.factory.js"></script>
+    <script src="javascripts/account/AuthInterceptor.factory.js"></script>
+    <script src="javascripts/main/Main.controller.js"></script>
+    <script src="javascripts/main/Alert.service.js"></script>
+    <script src="javascripts/account/Register.controller.js"></script>
+    <script src="javascripts/account/Logout.controller.js"></script>
+    <script src="javascripts/account/Login.controller.js"></script>
+    <script src="javascripts/account/Auth.service.js"></script>
+    <script src="javascripts/job/Job.controller.js"></script>
+    <script src="javascripts/account/ValidateEquals.directive.js"></script>
+    <script src="javascripts/main/Header.controller.js"></script>
+    <script src="javascripts/tournament/Brackets.controller.js"></script>
+
+</body>
+</html>
