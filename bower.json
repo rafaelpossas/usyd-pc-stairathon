@@ -1,0 +1,25 @@
+{
+  "name": "usydhealth",
+  "version": "1.0",
+  "authors": [
+    "Minority Report"
+  ],
+  "description": "University of Sydney Health Competition",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "angular-route": "~1.4.4",
+    "animate.css": "~3.2.6",
+    "angular-animate": "~1.4.4"
+  }
+}

@@ -1,0 +1,178 @@
+<div class="row">
+    <div id="inputForm" class="col-lg-6">
+        <form name="bracketForm">
+            <h1 class="form-signin-heading text-muted">Create a Bracket</h1>
+            <label for="name">Tournament name</label>
+            <input type="text" class="form-control" id="name" ng-model="name" placeholder="Tournament name" required autofocus="">
+            <label for="name" style="margin-top: 10px;">Number of Rounds</label>
+            <select class="form-control"
+                    id="rounds" ng style="height: 40px;margin: 2px 0 2px 0"
+                    ng-model="currentRound" ng-options="round.description for round in rounds"/>
+            <label for="lengthSelect" style="margin-top: 10px;">Round Length</label>
+            <select class="form-control" id="lengthSelect"
+                    ng-model="currentRoundLength" ng-options="round.description for round in roundLength"
+                    style="height: 40px;margin: 2px 0 2px 0"/>
+        </form>
+    </div>
+
+    <div id="teams" class="col-lg-6" style="height: 450px;">
+            <h1 class="form-signin-heading text-muted" style="float: left;">Minimum Teams: {{currentRound.minimum}} </h1>
+            <button class="btn btn-primary"
+                    style="float: right; margin: 20px;" data-toggle="modal" data-target="#myModal">Add Team</button>
+
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="faculty in selectedFaculties">
+                <td>
+                    {{faculty.name}}
+                    <button type="button" class="pull-right" ng-click="removeTeam(faculty)">&times;</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-12" style="margin-top: 40px;">
+        <button class="btn btn-success" style="float: right;"
+                ng-disabled="bracketForm.$invalid" ng-click="saveBracket()">Save Bracket</button>
+    </div>
+    <div class="row" style="padding: 10px;" ng-include="'html/tournament/bracket.table.html'"/>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Add Faculty</h3>
+                </div>
+                <div class="modal-body">
+                    <form  name="register" novalidate>
+                        <select class="form-control"
+                                style="height: 40px;margin: 2px 0 2px 0;"
+                                ng-model="currentFaculty" ng-options="faculty.name for faculty in faculties">
+                        </select>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="addTeam()" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<!--
+<h1>2013 NCAA Tournament - Midwest Bracket</h1>
+<main id="tournament">
+    <ul class="round round-1">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Lousville <span>79</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">NC A&T <span>48</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Colo St <span>84</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Missouri <span>72</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top ">Oklahoma St <span>55</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom winner">Oregon <span>68</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Saint Louis <span>64</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">New Mexico St <span>44</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Memphis <span>54</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">St Mary's <span>52</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Mich St <span>65</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Valparaiso <span>54</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Creighton <span>67</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Cincinnati <span>63</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Duke <span>73</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Albany <span>61</span></li>
+
+        <li class="spacer">&nbsp;</li>
+    </ul>
+    <ul class="round round-2">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Lousville <span>82</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Colo St <span>56</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Oregon <span>74</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Saint Louis <span>57</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top ">Memphis <span>48</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom winner">Mich St <span>70</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top ">Creighton <span>50</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom winner">Duke <span>66</span></li>
+
+        <li class="spacer">&nbsp;</li>
+    </ul>
+    <ul class="round round-3">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Lousville <span>77</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Oregon <span>69</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top ">Mich St <span>61</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom winner">Duke <span>71</span></li>
+
+        <li class="spacer">&nbsp;</li>
+    </ul>
+    <ul class="round round-4">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Lousville <span>85</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Duke <span>63</span></li>
+
+        <li class="spacer">&nbsp;</li>
+    </ul>
+</main>-->

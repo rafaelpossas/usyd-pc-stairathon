@@ -1,0 +1,67 @@
+<div class="jumbotron">
+    <div class="row" ng-show="!isAuthenticated">
+        <img src="../../img/stairs.png" class="stairs col-lg-4">
+        <div class="col-lg-8">
+            <h2>Welcome to University of Sydney Health Competition</h2>
+            <p> Show us that you can improve your health and get fit just by using the University stairs</p>
+        </div>
+
+    </div>
+    <div class="row" ng-show="!isAuthenticated">
+        <p><a class="btn btn-primary btn-lg col-lg-offset-5" href="/register" role="button">Create Account</a></p>
+    </div>
+
+    <div class="row" ng-show="isAuthenticated">
+        <img src="../../img/stairs.png" class="stairs col-lg-4">
+        <div class="col-lg-8">
+            <h2>Welcome back, {{user.email}}!</h2>
+            <p> Help your faculty in the tournament by pursuing healthy habits! </p>
+        </div>
+
+    </div>
+    <div class="row" ng-show="isAuthenticated">
+        <div class="col-lg-8">
+            <h2> See your last taps!</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Point awarded to</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tap in taps">
+                    <td>{{tap.date}}</td>
+                    <td>{{tap.hour}}:{{tap.minutes}}</td>
+                    <td>{{tap.faculty}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <h2> Your Faculty current Brackets</h2>
+            <table class="table table-striped" >
+                <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="bracket in allBrackets">
+                    <td>
+                        <a style="cursor: pointer;" ng-click="getBracketResult(bracket._id)">
+                            {{bracket.name}}
+                        </a>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <bracket-directive class="col-lg-12" bracket-data="currentBracket"/>
+    </div>
+
+</div>

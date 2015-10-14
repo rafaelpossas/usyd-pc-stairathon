@@ -1,0 +1,41 @@
+<div class="center-block table-faculty" ng-controller="facultyCtrl">
+    <div class="row">
+        <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModal">Add Faculty</button>
+    </div>
+    <div class="row">
+        <table class="table table-faculty">
+            <tr ng-repeat="faculty in faculties">
+                <td>
+                    {{faculty.name}}
+                    <button type="button" class="pull-right" ng-click="removeFaculty(this.faculty)">&times;</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Add Faculty</h3>
+                </div>
+                <div class="modal-body">
+                    <form  name="register" novalidate>
+                        <input type="text" class="form-control" name="name" ng-model="name" placeholder="Faculty Name" required autofocus="">
+                        <p class="help-block" ng-show="register.name.$dirty && register.name.$invalid"> Please enter a proper name</p>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addFaculty()">Save</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+

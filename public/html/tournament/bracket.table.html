@@ -1,0 +1,28 @@
+<table class="table table-striped" >
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Rounds</th>
+        <th>Round Length</th>
+        <th>Teams</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="bracket in allBrackets">
+        <td>
+            {{bracket.name}}
+
+        </td>
+        <td>
+            {{bracket.rounds}}
+        </td>
+        <td>
+            {{bracket.length}}
+        </td>
+        <td>
+            {{bracket.teams}}
+            <button type="button" class="pull-right" ng-click="removeBracket(bracket)">&times;</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
