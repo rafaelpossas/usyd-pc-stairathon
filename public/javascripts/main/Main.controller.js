@@ -9,7 +9,7 @@ app.controller('mainCtrl', ['authToken', '$rootScope', '$http','$scope','API_URL
     $scope.allBrackets = [];
     $scope.currentBracket = {};
     (function () {
-        if($rootScopenpisAuthenticated){
+        if($rootScope.isAuthenticated){
             $http.get(API_URL + 'tap/user/' + $rootScope.user.uniKey)
                 .success(function (faculties) {
                     $scope.taps = faculties;
