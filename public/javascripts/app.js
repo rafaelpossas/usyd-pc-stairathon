@@ -32,7 +32,7 @@ var app = angular.module('procymo-admin', ['ngRoute', 'ngAnimate']);
 
         $httpProvider.interceptors.push('authInterceptor');
     })
-        .constant('API_URL', 'http://localhost:3000/');
+        .constant('API_URL', 'http://stairathon.herokuapp.com/');
 
 
     app.run(function ($rootScope, $location, alert,authToken) {
