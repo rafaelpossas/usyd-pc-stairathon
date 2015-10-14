@@ -9,14 +9,17 @@ app.controller('mainCtrl', ['authToken', '$rootScope', '$http','$scope','API_URL
     $scope.allBrackets = [];
     $scope.currentBracket = {};
     (function () {
-        $http.get(API_URL + 'tap/user/' + $rootScope.user.uniKey)
-            .success(function (faculties) {
-                $scope.taps = faculties;
-            })
-        bracket.getBracketByFaculty($rootScope.user.faculty)
-            .then(function(docs){
-                $scope.allBrackets = docs;
-            });
+        if($rootScopenpisAuthenticated){
+            $http.get(API_URL + 'tap/user/' + $rootScope.user.uniKey)
+                .success(function (faculties) {
+                    $scope.taps = faculties;
+                })
+            bracket.getBracketByFaculty($rootScope.user.faculty)
+                .then(function(docs){
+                    $scope.allBrackets = docs;
+                });
+        }
+
     })();
 
     $scope.getBracketResult = function(id){
