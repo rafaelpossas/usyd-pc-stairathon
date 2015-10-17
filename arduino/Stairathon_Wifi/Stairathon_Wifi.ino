@@ -17,8 +17,8 @@ int bluLed = 6; //for BLUE LED
 int piezo  = 7; //for PIEZO (Sound)
 
 //WiFi Network Definitions
-const char mySSID[] = "mySSID";
-const char myPSK[] = "password";
+const char mySSID[] = "mySSIDhere";
+const char myPSK[] = "myPassphrasehere";
 
 // To use the ESP8266 as a TCP client, use the 
 // ESP8266Client class. First, create an object:
@@ -26,7 +26,7 @@ const char myPSK[] = "password";
 
 //Modify this to connect to the right server
 char server[] = "stairathon.herokuapp.com";
-//char server[] = "10.19.216.48";
+//char server[] = "172.20.10.14";
 
 //UID of the card
 String myID = "";
@@ -149,7 +149,6 @@ void connectESP8266()
   // connected. 0 indicates disconnected. (Negative values
   // equate to communication errors.)
   
-  //Disconnect previous networks before trying.
   retVal = esp8266.status();
   if (retVal <= 0)
   {
@@ -227,7 +226,7 @@ void httpRequest() {
   ESP8266Client client;
 
   // if there's a successful connection:
-  String postData = "id=" + myID+ "\n";
+  String postData = "id=" + myID;
   //String postData = myID;
   Serial.println("Postdata: " + postData);
   
@@ -241,7 +240,7 @@ void httpRequest() {
   //Connect to the server
   if (client.connect(server, 80)) {
   //if (client.connect(server, 3000)) {
-    timeout = millis() + 10000; //five second timeout
+    timeout = millis() + 10000; //ten second timeout
     client.println("POST /tap HTTP/1.1");
     client.println("Host: stairathon.herokuapp.com");
     client.println("User-Agent: Arduino/1.0");
@@ -297,18 +296,6 @@ endRequest:
     Serial.println("connection failed");
   }
 }
-
-/* void enableRFID () {
-  //Disables ethernet
-  digitalWrite(8, LOW);
-  digitalWrite(10, HIGH);
-} */
-
-/* void enableEthernet () {
-  //Disables RFID
-  digitalWrite(8, HIGH);
-  digitalWrite(10, LOW);
-} */
 
 // errorLoop prints an error code, then loops forever.
 void errorLoop(int error)
